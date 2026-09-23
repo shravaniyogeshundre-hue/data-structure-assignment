@@ -1,0 +1,76 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int roll[5];
+    string name[5];
+    int choice, search;
+
+    for(int i = 0; i < 5; i++)
+    {
+        cout << "Enter name of student " << i + 1 << ": ";
+        cin >> name[i];
+
+        cout << "Enter roll number: ";
+        cin >> roll[i];
+    }
+
+    do
+    {
+        cout << "\n--- Student Management System ---" << endl;
+        cout << "1. Display Students" << endl;
+        cout << "2. Search Student" << endl;
+        cout << "3. Exit" << endl;
+        cout << "Enter your choice: ";
+        cin >> choice;
+
+        switch(choice)
+        {
+            case 1:
+                cout << "\nStudent Records:" << endl;
+
+                for(int i = 0; i < 5; i++)
+                {
+                    cout << "Name: " << name[i]
+                         << "  Roll No: " << roll[i] << endl;
+                }
+                break;
+
+            case 2:
+            {
+                bool found = false;
+
+                cout << "Enter roll number to search: ";
+                cin >> search;
+
+                for(int i = 0; i < 5; i++)
+                {
+                    if(roll[i] == search)
+                    {
+                        cout << "Student Found!" << endl;
+                        cout << "Name: " << name[i] << endl;
+                        cout << "Roll No: " << roll[i] << endl;
+                        found = true;
+                        break;
+                    }
+                }
+
+                if(!found)
+                    cout << "Student Not Found!" << endl;
+
+                break;
+            }
+
+            case 3:
+                cout << "Exiting program..." << endl;
+                break;
+
+            default:
+                cout << "Invalid choice!" << endl;
+        }
+
+    } while(choice != 3);
+
+    return 0;
+}
