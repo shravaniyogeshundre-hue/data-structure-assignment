@@ -1,0 +1,28 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    queue<int> orders;
+    int orderNo;
+
+    // Store five customer order numbers
+    cout << "Enter 5 customer order numbers:" << endl;
+
+    for (int i = 0; i < 5; i++)
+    {
+        cin >> orderNo;
+        orders.push(orderNo);
+    }
+
+    // Process orders in the same order
+    cout << "\nProcessing customer orders:" << endl;
+
+    while (!orders.empty())
+    {
+        cout << "Processing Order No: " << orders.front() << endl;
+        orders.pop();
+    }
+
+    return 0;
+}
