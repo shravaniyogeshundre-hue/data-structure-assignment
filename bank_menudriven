@@ -1,0 +1,57 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int choice;
+    int token = 0;
+
+    do
+    {
+        cout << "\n--- BANK TOKEN SYSTEM ---" << endl;
+        cout << "1. Issue Token" << endl;
+        cout << "2. Display All Tokens" << endl;
+        cout << "3. Serve Customer" << endl;
+        cout << "4. Exit" << endl;
+        cout << "Enter your choice: ";
+        cin >> choice;
+
+        switch(choice)
+        {
+            case 1:
+                token++;
+                cout << "Token issued: " << token << endl;
+                break;
+
+            case 2:
+                if(token == 0)
+                    cout << "No tokens issued." << endl;
+                else
+                {
+                    cout << "Tokens issued:" << endl;
+                    for(int i = 1; i <= token; i++)
+                    {
+                        cout << "Token " << i << endl;
+                    }
+                }
+                break;
+
+            case 3:
+                if(token == 0)
+                    cout << "No customer to serve." << endl;
+                else
+                    cout << "Customer with token " << token << " is served." << endl;
+                break;
+
+            case 4:
+                cout << "Program exited." << endl;
+                break;
+
+            default:
+                cout << "Invalid choice!" << endl;
+        }
+
+    } while(choice != 4);
+
+    return 0;
+}
